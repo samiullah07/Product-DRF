@@ -9,3 +9,11 @@ class Product(models.Model):
     price = models.DecimalField(decimal_places=2,max_digits=7)
 
 
+
+class ProductGenric(models.Model):
+    name = models.CharField(max_length=50,default=None)
+    category = models.CharField(max_length=50)
+    
+    
+
+
