@@ -40,6 +40,14 @@ class ProductGenricListView(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializers
 
+    def perform_create(self,serializer):
+        title = serializer.validated_data.get("description")
+        name = serializer.validated_date.get("name") or None
+
+        if name is None:
+            name = title
+        serializer.save(name= name)
+
 
 product_List_generic = ProductGenricListView.as_view()
 
